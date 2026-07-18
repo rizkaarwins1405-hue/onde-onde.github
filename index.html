@@ -1,75 +1,821 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<title>A Gift For You ❤️</title>
 
-<title>Happy Birthday</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+overflow-x:hidden;
 }
 
 body{
-    background:#ffd6e7;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    font-family:'Poppins',sans-serif;
+
+width:100%;
+height:100vh;
+
+overflow:hidden;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:
+linear-gradient(180deg,#ffd8e7,#ffc7dc,#ffbfd8,#ffd8ea);
+
+position:relative;
+
 }
 
-.phone{
-    width:360px;
-    height:740px;
-    background:#f8cfe0;
-    border-radius:35px;
-    padding:20px;
-    overflow:hidden;
+/*========================
+BACKGROUND GLOW
+========================*/
+
+body::before{
+
+content:"";
+
+position:absolute;
+
+width:600px;
+height:600px;
+
+background:#ffffff55;
+
+border-radius:50%;
+
+filter:blur(150px);
+
+top:-250px;
+left:-250px;
+
+animation:moveGlow 12s linear infinite alternate;
+
 }
 
-.card{
-    margin-top:40px;
-    background:white;
-    border-radius:25px;
-    height:620px;
-    overflow-y:auto;
-    padding:25px;
-    box-shadow:0 10px 25px rgba(0,0,0,.1);
+body::after{
+
+content:"";
+
+position:absolute;
+
+width:450px;
+height:450px;
+
+background:#ff8ec4;
+
+filter:blur(170px);
+
+border-radius:50%;
+
+bottom:-180px;
+right:-180px;
+
+opacity:.35;
+
+animation:moveGlow2 13s linear infinite alternate;
+
 }
 
-.card::-webkit-scrollbar{
-    width:6px;
+@keyframes moveGlow{
+
+from{
+
+transform:translate(0,0);
+
 }
 
-.card::-webkit-scrollbar-thumb{
-    background:#ff9ec4;
-    border-radius:20px;
+to{
+
+transform:translate(120px,80px);
+
 }
+
+}
+
+@keyframes moveGlow2{
+
+from{
+
+transform:translate(0,0);
+
+}
+
+to{
+
+transform:translate(-120px,-70px);
+
+}
+
+}
+
+/*========================
+FLOWERS LAYER
+========================*/
+
+#flowers{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+overflow:hidden;
+
+pointer-events:none;
+
+}
+
+/*========================
+HEART LAYER
+========================*/
+
+#hearts{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+overflow:hidden;
+
+pointer-events:none;
+
+}
+
+/*========================
+MAIN CARD
+========================*/
+
+.container{
+
+position:relative;
+
+width:100%;
+max-width:420px;
+
+padding:40px 30px;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+z-index:10;
+
+}
+/*========================
+MUSIC BUTTON
+========================*/
+
+.music{
+
+position:fixed;
+
+right:25px;
+
+top:25px;
+
+width:60px;
+height:60px;
+
+border-radius:50%;
+
+background:white;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:25px;
+
+cursor:pointer;
+
+box-shadow:
+
+0 10px 30px rgba(255,105,180,.4);
+
+transition:.4s;
+
+z-index:999;
+
+}
+
+.music:hover{
+
+transform:scale(1.08);
+
+}
+
+/*========================
+GIFT
+========================*/
+
+.gift{
+
+width:190px;
+
+height:190px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:120px;
+
+animation:giftFloat 3s ease-in-out infinite;
+
+filter:drop-shadow(0 20px 30px rgba(0,0,0,.18));
+
+}
+
+@keyframes giftFloat{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-14px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+/*========================
+TITLE
+========================*/
 
 .title{
-    font-family:'Great Vibes',cursive;
-    font-size:48px;
-    color:#222;
-    margin-bottom:20px;
+
+margin-top:10px;
+
+font-size:40px;
+
+font-family:'Great Vibes',cursive;
+
+color:#ffffff;
+
+text-shadow:
+
+0 5px 15px rgba(255,105,180,.6);
+
 }
+
+/*========================
+SUBTITLE
+========================*/
 
 .subtitle{
-    font-size:22px;
-    margin-bottom:25px;
+
+margin-top:12px;
+
+font-size:16px;
+
+letter-spacing:1px;
+
+color:white;
+
+opacity:.9;
+
 }
 
-p{
-    font-size:18px;
-    line-height:1.9;
-    color:#444;
-    margin-bottom:20px;
+/*========================
+BUTTON
+========================*/
+
+button{
+
+margin-top:35px;
+
+padding:16px 55px;
+
+border:none;
+
+border-radius:40px;
+
+background:white;
+
+font-size:17px;
+
+cursor:pointer;
+
+font-weight:600;
+
+color:#ff4f95;
+
+transition:.4s;
+
+box-shadow:
+
+0 12px 35px rgba(255,105,180,.45);
+
+}
+
+button:hover{
+
+transform:translateY(-4px);
+
+background:#ff5ca2;
+
+color:white;
+
+}
+/*========================
+MESSAGE CARD
+========================*/
+
+.message{
+
+position:fixed;
+
+top:50%;
+
+left:50%;
+
+transform:translate(-50%,-50%) scale(.5);
+
+width:90%;
+max-width:450px;
+
+padding:35px;
+
+background:white;
+
+border-radius:30px;
+
+box-shadow:
+
+0 25px 60px rgba(0,0,0,.18);
+
+text-align:center;
+
+opacity:0;
+
+visibility:hidden;
+
+transition:.7s;
+
+z-index:9999;
+
+}
+
+.message.active{
+
+opacity:1;
+
+visibility:visible;
+
+transform:translate(-50%,-50%) scale(1);
+
+}
+
+.message h2{
+
+font-size:34px;
+
+color:#ff4f95;
+
+margin-bottom:15px;
+
+font-family:'Great Vibes',cursive;
+
+}
+
+.message p{
+
+line-height:1.9;
+
+font-size:17px;
+
+color:#666;
+
+}
+/*========================
+CLOSE
+========================*/
+
+.close{
+
+margin-top:25px;
+
+}
+
+/*========================
+RESPONSIVE
+========================*/
+
+@media(max-width:600px){
+
+.title{
+
+font-size:34px;
+
+}
+
+.gift{
+
+font-size:95px;
+
+}
+
+button{
+
+padding:15px 45px;
+
+}
+
+}
+/*====================================
+3D GIFT BOX
+====================================*/
+
+.gift{
+display:flex;
+justify-content:center;
+align-items:center;
+width:220px;
+height:220px;
+animation:giftFloat 3s ease-in-out infinite;
+}
+
+.gift-box{
+position:relative;
+width:140px;
+height:120px;
+}
+
+.box{
+position:absolute;
+bottom:0;
+width:140px;
+height:95px;
+background:#ff69b4;
+border-radius:8px;
+box-shadow:
+0 20px 40px rgba(0,0,0,.18);
+}
+
+.lid{
+position:absolute;
+top:18px;
+left:-6px;
+width:152px;
+height:28px;
+background:#ff87c5;
+border-radius:8px;
+transform-origin:center;
+transition:.6s;
+}
+
+.ribbon-v{
+position:absolute;
+left:62px;
+top:0;
+width:16px;
+height:120px;
+background:#fff;
+z-index:5;
+}
+
+.ribbon-h{
+position:absolute;
+top:46px;
+left:0;
+width:140px;
+height:15px;
+background:white;
+z-index:5;
+}
+
+.bow{
+position:absolute;
+top:-8px;
+width:34px;
+height:34px;
+border:8px solid white;
+border-radius:50%;
+}
+
+.left{
+left:36px;
+}
+
+.right{
+right:36px;
+}
+
+/*====================================
+OPEN ANIMATION
+====================================*/
+
+.gift.open .lid{
+transform:
+translateY(-40px)
+rotate(-25deg);
+}
+
+.gift.open{
+
+animation:none;
+transform:scale(1.08);
+
+}
+
+.gift.open{
+animation:none;
+transform:scale(1.08);
+}
+
+/*====================================
+FLOWER
+====================================*/
+
+.flower{
+
+position:absolute;
+
+top:-60px;
+
+font-size:26px;
+
+animation:flowerFall linear forwards;
+
+opacity:.9;
+
+filter:drop-shadow(0 0 6px white);
+
+}
+
+@keyframes flowerFall{
+
+0%{
+
+transform:
+translateY(-50px)
+rotate(0deg);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:
+translateY(120vh)
+translateX(90px)
+rotate(720deg);
+
+opacity:.3;
+
+}
+
+}
+
+/*====================================
+HEART
+====================================*/
+
+.heart{
+
+position:absolute;
+
+bottom:-40px;
+
+font-size:18px;
+
+color:#ff1744;
+
+animation:heartUp linear forwards;
+
+opacity:.8;
+
+}
+
+@keyframes heartUp{
+
+0%{
+
+transform:
+translateY(0)
+scale(.5);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:
+translateY(-120vh)
+translateX(50px)
+scale(1.5);
+
+opacity:0;
+
+}
+
+}
+
+/*====================================
+SPARKLE
+====================================*/
+
+.sparkle{
+
+position:absolute;
+
+width:6px;
+height:6px;
+
+background:white;
+
+border-radius:50%;
+
+box-shadow:
+0 0 10px white,
+0 0 25px white;
+
+animation:
+sparkle 2.5s infinite;
+
+}
+
+@keyframes sparkle{
+
+0%{
+
+transform:scale(.2);
+
+opacity:0;
+
+}
+
+50%{
+
+opacity:1;
+
+transform:scale(1.2);
+
+}
+
+100%{
+
+opacity:0;
+
+transform:scale(.2);
+
+}
+
+}
+
+/*====================================
+MUSIC ROTATE
+====================================*/
+
+.music{
+
+animation:
+musicSpin 5s linear infinite;
+
+}
+
+@keyframes musicSpin{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+/*====================================
+BUTTON GLOW
+====================================*/
+
+button{
+
+animation:
+pulse 2s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+
+box-shadow:
+0 0 0 0 rgba(255,105,180,.5);
+
+}
+
+70%{
+
+box-shadow:
+0 0 0 18px rgba(252, 78, 165, 0);
+
+}
+
+100%{
+
+box-shadow:
+0 0 0 0 rgba(255,105,180,0);
+
+}
+
+}
+/*=====================
+CONFETTI
+=====================*/
+
+.confetti{
+
+position:fixed;
+
+top:-20px;
+
+font-size:18px;
+
+pointer-events:none;
+
+animation:confettiFall linear forwards;
+
+z-index:99999;
+
+}
+
+@keyframes confettiFall{
+
+0%{
+
+transform:
+translateY(-20px)
+rotate(0deg);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:
+translateY(110vh)
+translateX(80px)
+rotate(720deg);
+
+opacity:0;
+
+}
+
+}
+
+button:active{
+
+transform:scale(.95);
+
 }
 
 </style>
@@ -77,50 +823,231 @@ p{
 </head>
 
 <body>
-    <div class="flowers">
-    <span>🌸</span>
-    <span>🌷</span>
-    <span>🌼</span>
-    <span>💮</span>
-    <span>🌺</span>
+
+<div id="flowers"></div>
+
+<div id="hearts"></div>
+
+<div class="sparkle" style="top:10%;left:20%;"></div>
+<div class="sparkle" style="top:18%;left:75%;animation-delay:1s;"></div>
+<div class="sparkle" style="top:65%;left:10%;animation-delay:.8s;"></div>
+<div class="sparkle" style="top:80%;left:82%;animation-delay:1.8s;"></div>
+<div class="sparkle" style="top:42%;left:90%;animation-delay:2.2s;"></div>
+<div class="sparkle" style="top:30%;left:8%;animation-delay:.5s;"></div>
+
+
+<div class="container">
+
+<div class="gift">
+
+<div class="gift-box">
+
+<div class="lid"></div>
+
+<div class="box"></div>
+
+<div class="ribbon-v"></div>
+
+<div class="ribbon-h"></div>
+
+<div class="bow left"></div>
+
+<div class="bow right"></div>
+
 </div>
 
-<div class="phone">
-
-<div class="card">
+</div>
 
 <div class="title">
-🌸 Happy Birthday 🤍 🌷
+
+A Gift For You
+
 </div>
 
 <div class="subtitle">
-happy birthday to the most precious person in my life 🤍
-</div>
 
-<p>
-Hari ini dunia beruntung karena seseorang sebaik kamu dilahirkan.
-Terima kasih sudah hadir dan menjadi bagian paling indah dalam hidupku.
-</p>
-
-<p>
-Semoga semua impianmu tercapai, selalu sehat,
-bahagia, dan selalu dikelilingi orang-orang yang menyayangimu.
-</p>
-
-<p>
-Aku akan selalu mendoakan yang terbaik untukmu.
-Selamat ulang tahun 🤍
-</p>
-
-<p>
-Love You Forever 🌸
-</p>
+Ketuk tombol bawah cuyy ❤️
 
 </div>
 
+<button id="open">
+
+Open Gift
+
+</button>
+
 </div>
+
+<div class="message" id="card">
+
+<h2>Happy Graduation ❤️</h2>
+
+<p id="typing"></p>
+
+<button class="close">
+
+Close
+
+</button>
+
+</div>
+
+<script>
+
+
+function confetti(){
+
+const emoji=["🎉","💖","✨"];
+
+for(let i=0;i<40;i++){
+
+const c=document.createElement("div");
+
+c.className="confetti";
+
+c.innerHTML=emoji[Math.floor(Math.random()*emoji.length)];
+
+c.style.left=Math.random()*100+"vw";
+
+c.style.animationDuration=
+3+Math.random()*3+"s";
+
+c.style.fontSize=
+16+Math.random()*18+"px";
+
+document.body.appendChild(c);
+
+setTimeout(()=>{
+
+c.remove();
+
+},6000);
+
+}
+
+}
+
+const openBtn = document.getElementById("open");
+const card = document.getElementById("card");
+const closeBtn = document.querySelector(".close");
+const gift = document.querySelector(".gift");
+
+openBtn.onclick = () => {
+
+gift.classList.add("open");
+
+setTimeout(()=>{
+
+card.classList.add("active");
+
+typeText();
+
+confetti();
+
+},700);
+
+}
+
+closeBtn.onclick = () =>{
+
+card.classList.remove("active");
+
+gift.classList.remove("open");
+
+}
+function createFlower(){
+
+const flower=document.createElement("div");
+
+flower.className="flower";
+
+flower.innerHTML="🌸";
+
+flower.style.left=Math.random()*100+"vw";
+
+flower.style.animationDuration=
+5+Math.random()*5+"s";
+
+flower.style.fontSize=
+18+Math.random()*18+"px";
+
+document.getElementById("flowers").appendChild(flower);
+
+setTimeout(()=>{
+
+flower.remove();
+
+},10000);
+
+}
+
+setInterval(createFlower,300);
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=
+4+Math.random()*3+"s";
+
+heart.style.fontSize=
+12+Math.random()*18+"px";
+
+document.getElementById("hearts").appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},8000);
+
+}
+
+setInterval(createHeart,900);
+const text=
+
+`Makasih ya clar buat semua kebaikan yg kamu kasih ke aku. makasih udah mau dengerin ceritakuu. makasih selalu nemenin akuu. makasih buat canda tawa nya ya clar (wlaupun garing) bnyak bgt momen yg sebener nya biasa aja tp karna ada klian jadi seru. ktawa bareng, jokes nyambung, smpe crita yang bisa gnti gnti topik itu bakal jadi kenangan yg susah bgt di lupain. aku mau minta maaf ya kalau selama kita temenan aku pernah bikin kamu kesel, kecewa, atau ngomong dan bersikap yang tanpa sadar nyakitin hati kamu. maaf kalau aku pernah bikin repot, atau ada salah yang mungkin ga aku sadari.
+
+makasih karena tetap nerima aku apa adanya. semoga semua salah paham atau hal yang kurang baik bisa kita tinggalin, dan yang tersisa cuma kenangan baiknya aja. 
+
+semoga kita tetap temenan lama ya, walaupun kita beda sekolah dan mungkin nnti bakal sama sama sibuk atau jalan hidup kita beda. aku bersyukur bgt bisa kenal kalian. sekali lagi makasih udah jadi teman yang baik, semoga kamu selalu bahagia dan semua hal baik selalu datang ke kamu ya clarr, i love you 🤍
+
+`;
+
+const typing=document.getElementById("typing");
+
+let i=0;
+
+function typeText(){
+
+typing.innerHTML="";
+
+i=0;
+
+const timer=setInterval(()=>{
+
+typing.innerHTML+=text.charAt(i);
+
+i++;
+
+if(i>=text.length){
+
+clearInterval(timer);
+
+}
+
+},35);
+
+}
+
+</script>
 
 </body>
+
 </html>
 
-<h1 id="typing"></h1>
